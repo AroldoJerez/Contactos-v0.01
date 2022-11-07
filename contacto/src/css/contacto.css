@@ -1,0 +1,32 @@
+.contacto {
+  background-color: #2a026f;
+  color: white;
+  border-radius: 10px;
+  width: 300px;
+  height: 150px;
+  margin:20px;
+  display: flex;
+}
+.contacto:hover {
+  box-shadow: 0px 0px 10px rgba(144, 32, 219, 0.874);
+}
+
+.informacion {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  margin: 10px;
+}
+.iconEdit {
+  width: 25px;
+  height: 25px;
+  color: white;
+  margin: 20px;
+}
+
+.Iconos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+}
