@@ -13,7 +13,6 @@ const agregarContacto = async (req, res) => {
     }
     res.status(200).send((contacto = contactoguardado));
   });
-  return res.redirect("https://localhost:3000");
 };
 
 module.exports = { agregarContacto };

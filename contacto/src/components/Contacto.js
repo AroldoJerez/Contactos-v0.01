@@ -31,7 +31,7 @@ function Contacto() {
     <div className="ContainerContactos">
       {contact.map((contactos) => {
         return (
-          <div className="contacto">
+          <div className="contacto" key={contactos._id}>
             <div className="informacion">
               <p>Nombre: {contactos.Nombre}</p>
               <p>Numero: {contactos.Numero}</p>

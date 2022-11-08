@@ -9,15 +9,19 @@ function AgregarContacto() {
     Numero: "",
   });
 
-  const submitForm = (e) => {
+  const Message = "test";
+
+  const submitForm = async (e) => {
     e.preventDefault();
-    axios
+    await axios
       .post(url, {
         Nombre: data.Nombre,
         Numero: data.Numero,
       })
       .then((res) => {
-        console.log(res.data);
+        if (res) {
+          setTimeout(() => window.location.replace("/"), 7000);
+        }
       })
       .catch((e) => {
         console.log(e);
@@ -28,7 +32,6 @@ function AgregarContacto() {
     const newcontact = { ...data };
     newcontact[e.target.id] = e.target.value;
     setData(newcontact);
-    console.log(newcontact);
   };
 
   return (
@@ -51,11 +54,10 @@ function AgregarContacto() {
           className="Numero"
           name="Numero"
           type="number"
-          placeholder="+54 999 9999"
+          placeholder="+54 999 9999999"
         ></input>
-        <button submit="/" className="btn btn-primary w-100 mb-2">
-          Agregar Contacto
-        </button>
+        <button className="btn btn-primary w-100 mb-2">Agregar Contacto</button>
+        <div className="alert alert-success">{Message}</div>
       </form>
     </div>
   );
