@@ -21,3 +21,15 @@ input {
   width: 300px;
   margin: 5px 0px 5px 0px;
 }
+
+.alert-success {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  color: #0f5132;
+  background-color: #d1e7dd;
+  border-color: #badbcc;
+  min-width: 350px;
+  min-height: 350px;
+  justify-content: center;
+}

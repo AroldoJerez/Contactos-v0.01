@@ -9,7 +9,7 @@ function AgregarContacto() {
     Numero: "",
   });
 
-  const Message = "test";
+  const Message = "test de enviado correctamente!";
 
   const submitForm = async (e) => {
     e.preventDefault();
@@ -36,6 +36,8 @@ function AgregarContacto() {
 
   return (
     <div className="Formulario">
+      <div className="alert alert-success">{Message}</div>
+
       <h1>Agregar Contacto</h1>
       <form onSubmit={(e) => submitForm(e)}>
         <input
@@ -57,7 +59,6 @@ function AgregarContacto() {
           placeholder="+54 999 9999999"
         ></input>
         <button className="btn btn-primary w-100 mb-2">Agregar Contacto</button>
-        <div className="alert alert-success">{Message}</div>
       </form>
     </div>
   );
