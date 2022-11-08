@@ -10,11 +10,14 @@ const Contactos = require("./models/schemacontactos");
 //Para leer el cuerpo del archivo
 const body_parser = require("body-parser");
 app.use(body_parser.urlencoded({ extended: true }));
-
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Cors
 const cors = require("cors");
 const { agregarContacto } = require("./controllers/agregarContacto");
+const { eliminarContacto } = require("./controllers/eliminarcontacto");
+
 app.use(cors());
 
 //Rutas
@@ -22,7 +25,8 @@ app.get("/api/", (req, res) => {
   Contactos.find().then((allContactos) => res.json(allContactos));
 });
 
-app.get("/api/agregarcontacto/", agregarContacto);
+app.post("/api/agregarcontacto/", agregarContacto);
+app.post("/api/eliminarcontacto/", eliminarContacto);
 
 app.get("/api/:_id", (req, res) => {
   const id = req.params;

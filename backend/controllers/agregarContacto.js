@@ -1,14 +1,19 @@
 const Contactos = require("../models/schemacontactos");
 
 const agregarContacto = async (req, res) => {
-  try {
-    const { Nombre, Numero } = req.body;
-    const newProduct = new Contactos({ Nombre, Numero });
-    await newProduct.save();
-    res.status(201).json({ msg: 1 });
-  } catch (e) {
-    res.status(400).json({ msg: 2 });
-  }
+  console.log("metodopost en agregar contacto");
+  console.log(req.body);
+
+  let contacto = new Contactos();
+  contacto.Nombre = req.body.Nombre;
+  contacto.Numero = req.body.Numero;
+  contacto.save((err, contactoguardado) => {
+    if (err) {
+      res.status(500).send("error al salvar");
+    }
+    res.status(200).send((contacto = contactoguardado));
+  });
+  return res.redirect("https://localhost:3000");
 };
 
 module.exports = { agregarContacto };

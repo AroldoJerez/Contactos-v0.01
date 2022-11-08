@@ -2,9 +2,11 @@
   background-color: #2a026f;
   color: white;
   border-radius: 10px;
-  width: 300px;
+  min-width: 240px;
+  width: 260px;
+  max-width: 300px;
   height: 150px;
-  margin:20px;
+  margin: 20px;
   display: flex;
 }
 .contacto:hover {
@@ -29,4 +31,12 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-end;
+}
+
+.ContainerContactos {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: flex-start;
 }

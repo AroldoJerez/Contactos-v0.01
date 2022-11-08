@@ -7,7 +7,7 @@ const contactoSchema = new Schema({
     type: String,
     required: true,
   },
-  Telefono: {
+  Numero: {
     type: String,
     unique: true,
     required: true,
