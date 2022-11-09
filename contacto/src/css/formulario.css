@@ -33,3 +33,11 @@ input {
   min-height: 350px;
   justify-content: center;
 }
+
+.activems {
+  color: #01331b;
+}
+
+.errorms {
+  background-color: #b00000;
+}
