@@ -35,6 +35,12 @@ function AgregarContacto() {
           estado: "errorms",
           Message: "Error inesperado",
         });
+        setTimeout(() => {
+          setMs({
+            estado: "",
+            Message: "",
+          });
+        }, 5000);
         console.log(e);
       });
   };
