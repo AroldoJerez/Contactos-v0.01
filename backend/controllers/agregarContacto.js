@@ -5,11 +5,11 @@ const agregarContacto = async (req, res) => {
   console.log(req.body);
 
   let contacto = new Contactos();
-  contacto.Nombre = req.body.Nombre;
-  contacto.Numero = req.body.Numero;
+  contacto.nombre = req.body.nombre;
+  contacto.numero = req.body.numero;
   contacto.save((err, contactoguardado) => {
     if (err) {
-      res.status(500).send("error al salvar");
+      res.status(500).send("Error al salvar 111");
     }
     res.status(200).send((contacto = contactoguardado));
   });

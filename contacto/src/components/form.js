@@ -1,48 +1,43 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../css/formulario.css";
+const url = "http://localhost:5000/api/agregarcontacto";
 
 function AgregarContacto() {
-  const url = "http://localhost:5000/api/agregarcontacto";
-  const [ms, setMs] = useState({
+  const [addstatus, setAddstatus] = useState({
     estado: "inactive",
-    Message: "",
+    message: "",
   });
   const [data, setData] = useState({
-    Nombre: "",
-    Numero: "",
+    nombre: "",
+    numero: "",
   });
 
   const submitForm = async (e) => {
     e.preventDefault();
-    console.log(e);
-    await axios
-      .post(url, {
-        Nombre: data.Nombre,
-        Numero: data.Numero,
+    try {
+      let response = await axios.post(url, {
+        nombre: data.nombre,
+        numero: data.numero,
       })
-      .then((res) => {
-        if (res) {
-          setMs({
-            estado: "activems",
-            Message: `Contacto ${data.Nombre} agregado corretamente`,
-          });
-          setTimeout(() => window.location.replace("/"), 7000);
-        }
-      })
-      .catch((e) => {
-        setMs({
-          estado: "errorms",
-          Message: "Error inesperado",
-        });
-        setTimeout(() => {
-          setMs({
-            estado: "",
-            Message: "",
-          });
-        }, 5000);
-        console.log(e);
+      setAddstatus({
+        estado: "activems",
+        message: `Contacto ${data.nombre} agregado corretamente`,
       });
+      setTimeout(() => window.location.replace("/"), 4000);
+    } catch (error) {
+      setAddstatus({
+        estado: "errorms",
+        message: "Error inesperado",
+      });
+      setTimeout(() => {
+        setAddstatus({
+          estado: "",
+          message: "",
+        });
+      }, 4000);
+      console.log(error);
+    }
   };
 
   const handle = (e) => {
@@ -50,16 +45,16 @@ function AgregarContacto() {
     newcontact[e.target.id] = e.target.value;
     setData(newcontact);
   };
-  if (ms.estado === "activems") {
+  if (addstatus.estado === "activems") {
     return (
       <div className="Formulario">
-        <div className="alert alert-success activems">{ms.Message}</div>
+        <div className="alert alert-success activems">{addstatus.message}</div>
       </div>
     );
-  } else if (ms.estado === "errorms") {
+  } else if (addstatus.estado === "errorms") {
     return (
       <div className="Formulario">
-        <div className="alert alert-success errorms">{ms.Message}</div>
+        <div className="alert alert-success errorms">{addstatus.message}</div>
       </div>
     );
   } else {
@@ -69,19 +64,19 @@ function AgregarContacto() {
         <form onSubmit={(e) => submitForm(e)}>
           <input
             onChange={(e) => handle(e)}
-            value={data.Nombre}
-            id="Nombre"
-            className="Nombre"
-            name="Nombre"
+            value={data.nombre}
+            id="nombre"
+            className="nombre"
+            name="nombre"
             type="text"
             placeholder="Ingresar Nombre"
           ></input>
           <input
             onChange={(e) => handle(e)}
-            value={data.Numero}
-            id="Numero"
-            className="Numero"
-            name="Numero"
+            value={data.numero}
+            id="numero"
+            className="numero"
+            name="numero"
             type="number"
             placeholder="+54 999 9999999"
           ></input>

@@ -33,8 +33,8 @@ function Contacto() {
         return (
           <div className="contacto" key={contactos._id}>
             <div className="informacion">
-              <p>Nombre: {contactos.Nombre}</p>
-              <p>Numero: {contactos.Numero}</p>
+              <p>Nombre: {contactos.nombre}</p>
+              <p>Numero: {contactos.numero}</p>
             </div>
             <div className="Iconos">
               <Link to="/editarcontacto">

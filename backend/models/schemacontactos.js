@@ -3,11 +3,11 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const contactoSchema = new Schema({
-  Nombre: {
+  nombre: {
     type: String,
     required: true,
   },
-  Numero: {
+  numero: {
     type: String,
     unique: true,
     required: true,
