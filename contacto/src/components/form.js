@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../css/formulario.css";
 const url = "http://localhost:5000/api/agregarcontacto";
+const regex = {
+  nombre: /\w{3,17}$/, // Letras y espacios, pueden llevar acentos.
+  correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+  telefono: /^\d{7,14}$/, // 7 a 14 numeros.
+};
 
 function AgregarContacto() {
   const [addstatus, setAddstatus] = useState({
@@ -15,11 +20,25 @@ function AgregarContacto() {
 
   const submitForm = async (e) => {
     e.preventDefault();
+    if (!regex.telefono.test(data.numero)) {
+      return (
+        setAddstatus({
+          estado: "errorms",
+          message: "El numero de contener entre 7 y 14 caracteres",
+        }),
+        setTimeout(() => {
+          setAddstatus({
+            estado: "",
+            message: "",
+          });
+        }, 3000)
+      );
+    }
     try {
       let response = await axios.post(url, {
         nombre: data.nombre,
         numero: data.numero,
-      })
+      });
       setAddstatus({
         estado: "activems",
         message: `Contacto ${data.nombre} agregado corretamente`,
@@ -41,52 +60,45 @@ function AgregarContacto() {
   };
 
   const handle = (e) => {
+    console.log(e.target.value);
     const newcontact = { ...data };
     newcontact[e.target.id] = e.target.value;
     setData(newcontact);
   };
-  if (addstatus.estado === "activems") {
-    return (
-      <div className="Formulario">
+
+  return (
+    <div className="Formulario">
+      {addstatus.estado === "activems" ? (
         <div className="alert alert-success activems">{addstatus.message}</div>
-      </div>
-    );
-  } else if (addstatus.estado === "errorms") {
-    return (
-      <div className="Formulario">
+      ) : addstatus.estado === "errorms" ? (
         <div className="alert alert-success errorms">{addstatus.message}</div>
-      </div>
-    );
-  } else {
-    return (
-      <div className="Formulario">
-        <h1>Agregar Contacto</h1>
-        <form onSubmit={(e) => submitForm(e)}>
-          <input
-            onChange={(e) => handle(e)}
-            value={data.nombre}
-            id="nombre"
-            className="nombre"
-            name="nombre"
-            type="text"
-            placeholder="Ingresar Nombre"
-          ></input>
-          <input
-            onChange={(e) => handle(e)}
-            value={data.numero}
-            id="numero"
-            className="numero"
-            name="numero"
-            type="number"
-            placeholder="+54 999 9999999"
-          ></input>
-          <button className="btn btn-primary w-100 mb-2">
-            Agregar Contacto
-          </button>
-        </form>
-      </div>
-    );
-  }
+      ) : (
+        ""
+      )}
+      <h1>Agregar Contacto</h1>
+      <form id="formulario" onSubmit={(e) => submitForm(e)}>
+        <input
+          onChange={(e) => handle(e)}
+          value={data.nombre}
+          id="nombre"
+          className="nombre"
+          name="nombre"
+          type="text"
+          placeholder="Ingresar Nombre"
+        ></input>
+        <input
+          onChange={(e) => handle(e)}
+          value={data.numero}
+          id="numero"
+          className="numero"
+          name="numero"
+          type="number"
+          placeholder="+54 999 9999999"
+        ></input>
+        <button className="btn btn-primary w-100 mb-2">Agregar Contacto</button>
+      </form>
+    </div>
+  );
 }
 
 export default AgregarContacto;
