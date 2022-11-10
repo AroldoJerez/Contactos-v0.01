@@ -1,20 +1,50 @@
-.Formulario {
-  height: 100vh;
-  background: #340248;
+.formulario {
+  margin: 0;
+  border-radius: 10px;
+  border: 2px solid white;
+  color: white;
+  height: auto;
+  padding: 50px 0px 50px 0px;
+  width: 500px;
+  background: #0166af;
   display: flex;
-  flex-direction: column;
   align-content: center;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  transition: ease-in 500ms;
 }
-.Formulario > h1 {
+
+.formulario:hover {
+  transition: ease-in 500ms;
+  box-shadow: 0px 0px 6px 0px black;
+}
+
+.h1 {
   color: white;
+  text-shadow: 0px 0px 5px #3e3e3e;
 }
+
+.agregarcontacto {
+  height: 100vh;
+  background: #0166af;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}
+
 form {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
 }
 
 input {
@@ -23,21 +53,65 @@ input {
 }
 
 .alert-success {
-  display: flex;
   align-items: center;
   position: absolute;
-  color: #0f5132;
-  background-color: #d1e7dd;
-  border-color: #badbcc;
-  min-width: 350px;
-  min-height: 350px;
+  border: none;
+  max-width: 300px;
+  min-width: 300px;
+  min-height: auto;
   justify-content: center;
 }
 
 .activems {
-  color: #01331b;
+  display: hidden;
+  color: white;
+  background-color: #0f5132;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
 }
 
 .errorms {
-  background-color: #f1242478;
+  color: white;
+  background-color: #a10000;
+}
+
+.triangulo {
+  width: 0px;
+  height: auto;
+  border-color: #badbcc;
+  border-bottom: 8px solid #a10000;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  margin: 0;
+  padding: 0px;
+  margin-left: 5px;
+}
+
+.trianguloaccept {
+  width: 0px;
+  height: auto;
+  border-color: #badbcc;
+  border-bottom: 8px solid #0f5132;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  margin: 0;
+  padding: 0px;
+  margin-left: 5px;
+}
+.btn-check:focus + .btn,
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.inputalert {
+  border: 2px solid #a10000;
 }
