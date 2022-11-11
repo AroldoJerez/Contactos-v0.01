@@ -36,7 +36,7 @@ function AgregarContacto() {
         estado: "activems",
         message: `Contacto ${data.nombre} agregado corretamente`,
       });
-      setTimeout(() => window.location.replace("/"), 4000);
+      setTimeout(() => window.location.replace("/"), 10000);
     } catch (error) {
       setAddstatus({
         estado: "errorms",
@@ -47,7 +47,7 @@ function AgregarContacto() {
           estado: "",
           message: "",
         });
-      }, 4000);
+      }, 400000);
       console.log(error);
     }
   };
@@ -69,16 +69,39 @@ function AgregarContacto() {
     <div className="agregarcontacto">
       <div className="formulario">
         {addstatus.estado === "activems" ? (
-          <div className="alert alert-success activems">
+          <div className="alert activems">
             {addstatus.message}
+            <div className="botonesms">
+              <a href="/" className="botonms success">
+                Contactos
+              </a>
+              <button
+                className="botonms success"
+                onClick={() =>
+                  setAddstatus({
+                    estado: "",
+                    message: "",
+                  })
+                }
+              >
+                Agregar otro
+              </button>
+            </div>
           </div>
         ) : (
           ""
         )}
-        <h1 className={addstatus.estado === "activems" ? "hidden" : "h1"}>
+        <h1
+          className="h1"
+          hidden={addstatus.estado === "activems" ? true : false}
+        >
           AGREGAR CONTACTO
         </h1>
-        <form id="formulario" onSubmit={(e) => submitForm(e)}>
+        <form
+          id="formulario"
+          onSubmit={(e) => submitForm(e)}
+          hidden={addstatus.estado === "activems" ? true : false}
+        >
           <label>
             Nombre:
             <input
@@ -108,14 +131,17 @@ function AgregarContacto() {
           {addstatus.estado === "errorms" ? (
             <div className="boxaltert">
               <div className="triangulo"></div>
-              <div className="alert alert-success errorms">
+              <div className="alert alert-error errorms">
                 {addstatus.message}
               </div>
             </div>
           ) : (
             ""
           )}
-          <button className="btn btn-success w-100 mb-2">
+          <button
+            className="btn btn-success w-100 mb-2"
+            disabled={addstatus.estado === "activems" ? true : false}
+          >
             Agregar Contacto
           </button>
         </form>

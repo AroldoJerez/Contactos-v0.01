@@ -37,9 +37,9 @@ function Contacto() {
               <p>Numero: {contactos.numero}</p>
             </Link>
             <div className="Iconos">
-              <button className="botonicon">
+              <a href={"editarcontacto/" + contactos._id} className="botonicon">
                 <FaUsersCog className="iconEdit" />
-              </button>
+              </a>
               <button
                 className="botonicon"
                 onClick={() => EliminarContacto(contactos)}

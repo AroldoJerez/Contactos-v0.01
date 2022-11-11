@@ -17,6 +17,7 @@ app.use(express.json());
 const cors = require("cors");
 const { agregarContacto } = require("./controllers/agregarContacto");
 const { eliminarContacto } = require("./controllers/eliminarcontacto");
+const { editarContacto } = require("./controllers/editarContacto");
 
 app.use(cors());
 
@@ -26,8 +27,13 @@ app.get("/api/", (req, res) => {
 });
 
 app.post("/api/agregarcontacto/", agregarContacto);
+app.post("/api/editarcontacto/:_id", editarContacto);
 app.post("/api/eliminarcontacto/", eliminarContacto);
 
+app.get("/api/editarcontactos/:_id", (req, res) => {
+  const id = req.params;
+  Contactos.findById(id).then((contactos) => res.json(contactos));
+});
 app.get("/api/:_id", (req, res) => {
   const id = req.params;
   Contactos.findById(id).then((contactos) => res.json(contactos));
