@@ -32,20 +32,21 @@ function Contacto() {
       {contact.map((contactos) => {
         return (
           <div className="contacto" key={contactos._id}>
-            <Link to={contactos._id} className="linkcontactoperfil">
-              <div className="informacion">
-                <p>Nombre: {contactos.nombre}</p>
-                <p>Numero: {contactos.numero}</p>
-              </div>
-              <div className="Iconos">
-                <Link to="/editarcontacto">
-                  <FaUsersCog className="iconEdit" />
-                </Link>
-                <Link onClick={() => EliminarContacto(contactos)}>
-                  <FaRegTrashAlt className="iconEdit" />
-                </Link>
-              </div>
+            <Link to={contactos._id} className="informacion">
+              <p>Nombre: {contactos.nombre}</p>
+              <p>Numero: {contactos.numero}</p>
             </Link>
+            <div className="Iconos">
+              <button className="botonicon">
+                <FaUsersCog className="iconEdit" />
+              </button>
+              <button
+                className="botonicon"
+                onClick={() => EliminarContacto(contactos)}
+              >
+                <FaRegTrashAlt className="iconEdit" />
+              </button>
+            </div>
           </div>
         );
       })}

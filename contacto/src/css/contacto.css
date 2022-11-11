@@ -12,7 +12,6 @@
 }
 .contacto:hover {
   box-shadow: inset 0px 0px 3px 1px #00000085;
-  cursor: pointer;
 }
 
 .informacion {
@@ -20,12 +19,18 @@
   flex-wrap: wrap;
   align-content: center;
   margin: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.informacion:hover {
+  color: white;
 }
 .iconEdit {
   width: 25px;
   height: 25px;
   color: white;
-  margin: 20px;
+  margin: 10px;
 }
 
 .Iconos {
@@ -40,7 +45,7 @@
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, 160px);
-  margin-top: 90px;
+  margin-top: 10px;
 }
 
 .linkcontactoperfil {
@@ -74,4 +79,18 @@
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
   }
+}
+
+.botonicon {
+  margin-right: 10px;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  transition: ease-in 200ms;
+}
+
+.botonicon:hover {
+  background: #024a7d;
+  border: 1px solid #012a47;
+  border-radius: 14px;
 }

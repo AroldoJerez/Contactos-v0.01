@@ -1,12 +1,11 @@
 import "./css/App.css";
-import { Routes, Route, useParams } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Editarcontacto from "./components/editarcontacto";
 import AgregarContacto from "./components/form";
 import ListaContacto from "./components/listadecontactos";
 import Perfildelcontacto from "./components/perfildelcontacto";
 
 function App() {
-  const id = useParams();
   return (
     <div>
       <Routes>

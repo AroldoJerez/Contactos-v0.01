@@ -28,7 +28,7 @@ function AgregarContacto() {
       });
     }
     try {
-      let response = await axios.post(url, {
+      await axios.post(url, {
         nombre: data.nombre,
         numero: data.numero,
       });
