@@ -43,6 +43,16 @@
   margin-top: 90px;
 }
 
+.linkcontactoperfil {
+  text-decoration: none;
+  color: white;
+  display: flex;
+}
+.linkcontactoperfil:hover {
+  text-decoration: none;
+  color: white;
+}
+
 @media (max-width: 750px) {
   .ContainerContactos {
     grid-template-columns: repeat(2, 1fr);
