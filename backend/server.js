@@ -27,7 +27,7 @@ app.get("/api/", (req, res) => {
 });
 
 app.post("/api/agregarcontacto/", agregarContacto);
-app.post("/api/editarcontacto/:_id", editarContacto);
+app.put("/api/editarcontacto/:_id", editarContacto);
 app.post("/api/eliminarcontacto/", eliminarContacto);
 
 app.get("/api/editarcontactos/:_id", (req, res) => {

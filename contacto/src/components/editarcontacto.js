@@ -28,7 +28,7 @@ function Editarcontacto() {
   const submitFormUp = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(url, {
+      axios.put(url, {
         nombre: data.nombre,
         numero: data.numero,
       });
