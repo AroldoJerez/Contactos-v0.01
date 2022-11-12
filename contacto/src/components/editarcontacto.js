@@ -3,20 +3,21 @@ import "../css/editarcontacto.css";
 import { useParams } from "react-router-dom";
 
 import axios from "axios";
-const regex = {
-  nombre: /\w{3,17}$/, // Letras y espacios, pueden llevar acentos.
-  correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-  telefono: /^\d{7,14}$/, // 7 a 14 numeros.
-};
+//const regex = {
+//  nombre: /\w{3,17}$/, // Letras y espacios, pueden llevar acentos.
+//  correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+//  telefono: /^\d{7,14}$/, // 7 a 14 numeros.
+//};
 
 function Editarcontacto() {
   const urlparametro = useParams();
   const url = "http://localhost:5000/api/editarcontacto/" + urlparametro.id;
   const [contacto, setContacto] = useState([]);
   const [data, setData] = useState({
-    nombre: contacto.nombre,
-    numero: contacto.numero,
+    nombre: "",
+    numero: "",
   });
+
   const Leercontacto = () => {
     fetch("http://localhost:5000/api/editarcontactos/" + urlparametro.id)
       .then((res) => res.json())

@@ -45,7 +45,7 @@
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, 160px);
-  margin-top: 10px;
+  margin-top: 40px;
 }
 
 .linkcontactoperfil {
@@ -93,4 +93,32 @@
   background: #024a7d;
   border: 1px solid #012a47;
   border-radius: 14px;
+}
+
+.mensajeeliminado {
+  background: #198754;
+  height: 40px;
+  color: white;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  left: 0;
+  margin-top: -45px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+
+.iconEditdelete {
+  margin-left: 10px;
+}
+.iconEditdelete:hover {
+  color: rgb(0, 61, 25);
+  cursor: pointer;
+}
+
+.textoeliminado {
+  margin-bottom: 0px;
 }

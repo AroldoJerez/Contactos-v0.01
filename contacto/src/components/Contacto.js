@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "../css/contacto.css";
 import { Link } from "react-router-dom";
-import { FaRegTrashAlt, FaUsersCog } from "react-icons/fa";
+import { FaRegTrashAlt, FaUsersCog, FaRegTimesCircle } from "react-icons/fa";
 import axios from "axios";
 
 function Contacto() {
   const [contact, setContact] = useState([]);
+  const [estadoms, setEstadoms] = useState("");
   const url = "http://localhost:5000/api/eliminarcontacto";
 
   const LoadContacto = () => {
@@ -16,6 +17,7 @@ function Contacto() {
 
   const EliminarContacto = (contactos) => {
     const identidad = contactos._id;
+    setEstadoms(contactos.nombre);
     axios
       .post(url, { _id: identidad })
       .then((res) => {
@@ -27,8 +29,13 @@ function Contacto() {
   };
 
   LoadContacto();
+
   return (
     <div className="ContainerContactos">
+      <div className="mensajeeliminado" hidden={estadoms === "" ? true : false}>
+        <p className="textoeliminado">Contacto {estadoms} Eliminado</p>
+        <FaRegTimesCircle className="iconEditdelete" onClick={()=>setEstadoms("")} />
+      </div>
       {contact.map((contactos) => {
         return (
           <div className="contacto" key={contactos._id}>

@@ -36,7 +36,6 @@ function AgregarContacto() {
         estado: "activems",
         message: `Contacto ${data.nombre} agregado corretamente`,
       });
-      setTimeout(() => window.location.replace("/"), 10000);
     } catch (error) {
       setAddstatus({
         estado: "errorms",
@@ -47,7 +46,7 @@ function AgregarContacto() {
           estado: "",
           message: "",
         });
-      }, 400000);
+      }, 10000);
       console.log(error);
     }
   };
@@ -64,6 +63,16 @@ function AgregarContacto() {
       });
     }
   };
+  const otrocontacto = () => {
+    setAddstatus({
+      estado: "",
+      message: "",
+    });
+    setData({
+      nombre: "",
+      numero: "",
+    });
+  };
 
   return (
     <div className="agregarcontacto">
@@ -77,12 +86,7 @@ function AgregarContacto() {
               </a>
               <button
                 className="botonms success"
-                onClick={() =>
-                  setAddstatus({
-                    estado: "",
-                    message: "",
-                  })
-                }
+                onClick={() => otrocontacto()}
               >
                 Agregar otro
               </button>

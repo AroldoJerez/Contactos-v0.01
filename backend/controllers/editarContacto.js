@@ -2,8 +2,10 @@ const Contactos = require("../models/schemacontactos");
 
 const editarContacto = async (req, res) => {
   console.log("metodo put en editar contacto");
-  const id = req.body;
+  const id = req.params;
+  const body = req.body;
   console.log(id);
+    console.log(body);
   Contactos.findByIdAndUpdate(
     id,
     {
