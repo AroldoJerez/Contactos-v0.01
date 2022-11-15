@@ -1,17 +1,17 @@
 .contacto {
-  background-color: #0166af;
+  background-color: #012826;
   color: white;
-  border-radius: 3px;
   min-width: 240px;
   width: 260px;
   max-width: 300px;
   min-height: 100px;
   height: auto;
   display: flex;
-  transition: ease-in 500ms;
+  transition: ease-in 150ms;
 }
+
 .contacto:hover {
-  box-shadow: inset 0px 0px 3px 1px #00000085;
+  box-shadow: 0px 0px 3px 1px #597a55;
 }
 
 .informacion {
@@ -20,7 +20,7 @@
   align-content: center;
   margin: 10px;
   text-decoration: none;
-  color: white;
+  color: #ffe8d7;
 }
 
 .informacion:hover {
@@ -29,15 +29,22 @@
 .iconEdit {
   width: 25px;
   height: 25px;
-  color: white;
-  margin: 10px;
+  color: #ffe8d7;
+  margin: 5px;
+}
+
+.Ambosdivicons {
+  display: flex;
+  align-content: space-between;
+  justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
 .Iconos {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-end;
+  justify-content: flex-end;
+  align-content: flex-start;
+  margin: 3px;
 }
 
 .ContainerContactos {
@@ -45,7 +52,7 @@
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, 160px);
-  margin-top: 40px;
+  margin-top: -30px;
 }
 
 .linkcontactoperfil {
@@ -82,17 +89,15 @@
 }
 
 .botonicon {
-  margin-right: 10px;
   background: none;
   border: none;
-  border-radius: 8px;
+  border-radius: 2px;
   transition: ease-in 200ms;
 }
 
 .botonicon:hover {
-  background: #024a7d;
-  border: 1px solid #012a47;
-  border-radius: 14px;
+  background: #0d5854;
+  border: 1px solid #ffffff30;
 }
 
 .mensajeeliminado {
@@ -121,4 +126,20 @@
 
 .textoeliminado {
   margin-bottom: 0px;
+}
+
+a {
+  color: #012826;
+  text-decoration: none;
+}
+a:hover {
+  color: #012826;
+}
+
+.icons1 {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0px 3px 3px 0px;
+  align-items: flex-end;
+  color: #ffe8d7;
 }

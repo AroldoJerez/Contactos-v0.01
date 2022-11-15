@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import "../css/contacto.css";
 import { Link } from "react-router-dom";
-import { FaRegTrashAlt, FaUsersCog, FaRegTimesCircle } from "react-icons/fa";
+import {
+  FaRegTrashAlt,
+  FaUsersCog,
+  FaRegTimesCircle,
+  FaFacebookSquare,
+  FaTwitterSquare,
+  FaInstagram,
+} from "react-icons/fa";
 import axios from "axios";
 
 function Contacto() {
@@ -34,7 +41,10 @@ function Contacto() {
     <div className="ContainerContactos">
       <div className="mensajeeliminado" hidden={estadoms === "" ? true : false}>
         <p className="textoeliminado">Contacto {estadoms} Eliminado</p>
-        <FaRegTimesCircle className="iconEditdelete" onClick={()=>setEstadoms("")} />
+        <FaRegTimesCircle
+          className="iconEditdelete"
+          onClick={() => setEstadoms("")}
+        />
       </div>
       {contact.map((contactos) => {
         return (
@@ -43,16 +53,26 @@ function Contacto() {
               <p>Nombre: {contactos.nombre}</p>
               <p>Numero: {contactos.numero}</p>
             </Link>
-            <div className="Iconos">
-              <a href={"editarcontacto/" + contactos._id} className="botonicon">
-                <FaUsersCog className="iconEdit" />
-              </a>
-              <button
-                className="botonicon"
-                onClick={() => EliminarContacto(contactos)}
-              >
-                <FaRegTrashAlt className="iconEdit" />
-              </button>
+            <div className="Ambosdivicons">
+              <div className="Iconos">
+                <a
+                  href={"editarcontacto/" + contactos._id}
+                  className="botonicon"
+                >
+                  <FaUsersCog className="iconEdit" />
+                </a>
+                <button
+                  className="botonicon"
+                  onClick={() => EliminarContacto(contactos)}
+                >
+                  <FaRegTrashAlt className="iconEdit" />
+                </button>
+              </div>
+              <div className="icons1">
+                <FaFacebookSquare />
+                <FaInstagram />
+                <FaTwitterSquare />
+              </div>
             </div>
           </div>
         );

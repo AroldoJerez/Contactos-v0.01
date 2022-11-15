@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../css/formulario.css";
+import imagenform from "../imagenes/contactosform.png";
 const url = "http://localhost:5000/api/agregarcontacto";
 const regex = {
   nombre: /\w{3,17}$/, // Letras y espacios, pueden llevar acentos.
@@ -76,79 +77,86 @@ function AgregarContacto() {
 
   return (
     <div className="agregarcontacto">
-      <div className="formulario">
-        {addstatus.estado === "activems" ? (
-          <div className="alert activems">
-            {addstatus.message}
-            <div className="botonesms">
-              <a href="/" className="botonms success">
-                Contactos
-              </a>
-              <button
-                className="botonms success"
-                onClick={() => otrocontacto()}
-              >
-                Agregar otro
-              </button>
-            </div>
-          </div>
-        ) : (
-          ""
-        )}
-        <h1
-          className="h1"
-          hidden={addstatus.estado === "activems" ? true : false}
-        >
-          AGREGAR CONTACTO
-        </h1>
-        <form
-          id="formulario"
-          onSubmit={(e) => submitForm(e)}
-          hidden={addstatus.estado === "activems" ? true : false}
-        >
-          <label>
-            Nombre:
-            <input
-              onChange={(e) => handle(e)}
-              value={data.nombre}
-              id="nombre"
-              className="nombre"
-              name="nombre"
-              type="text"
-              placeholder="Ingresar Nombre"
-            ></input>
-          </label>
-          <label>
-            Telefono:
-            <input
-              onChange={(e) => handle(e)}
-              value={data.numero}
-              id="numero"
-              className={
-                addstatus.estado === "errorms" ? "numero inputalert" : "numero"
-              }
-              name="numero"
-              type="number"
-              placeholder="+54 999 9999999"
-            ></input>
-          </label>
-          {addstatus.estado === "errorms" ? (
-            <div className="boxaltert">
-              <div className="triangulo"></div>
-              <div className="alert alert-error errorms">
-                {addstatus.message}
+      <div className="left">
+        <div className="formulario">
+          {addstatus.estado === "activems" ? (
+            <div className="alert activems">
+              {addstatus.message}
+              <div className="botonesms">
+                <a href="/" className="botonms success">
+                  Contactos
+                </a>
+                <button
+                  className="botonms success"
+                  onClick={() => otrocontacto()}
+                >
+                  Agregar otro
+                </button>
               </div>
             </div>
           ) : (
             ""
           )}
-          <button
-            className="btn btn-success w-100 mb-2"
-            disabled={addstatus.estado === "activems" ? true : false}
+          <h1
+            className="h1"
+            hidden={addstatus.estado === "activems" ? true : false}
           >
-            Agregar Contacto
-          </button>
-        </form>
+            AGREGAR CONTACTO
+          </h1>
+          <form
+            id="formulario"
+            onSubmit={(e) => submitForm(e)}
+            hidden={addstatus.estado === "activems" ? true : false}
+          >
+            <label>
+              Nombre:
+              <input
+                onChange={(e) => handle(e)}
+                value={data.nombre}
+                id="nombre"
+                className="nombre"
+                name="nombre"
+                type="text"
+                placeholder="Ingresar Nombre"
+              ></input>
+            </label>
+            <label>
+              Telefono:
+              <input
+                onChange={(e) => handle(e)}
+                value={data.numero}
+                id="numero"
+                className={
+                  addstatus.estado === "errorms"
+                    ? "numero inputalert"
+                    : "numero"
+                }
+                name="numero"
+                type="number"
+                placeholder="+54 999 9999999"
+              ></input>
+            </label>
+            {addstatus.estado === "errorms" ? (
+              <div className="boxaltert">
+                <div className="triangulo"></div>
+                <div className="alert alert-error errorms">
+                  {addstatus.message}
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
+            <button
+              className="btn btn-success w-100 mb-2"
+              disabled={addstatus.estado === "activems" ? true : false}
+            >
+              Agregar Contacto
+            </button>
+          </form>
+        </div>
+      </div>
+      <div className="rigth">
+        <img src={imagenform} className="imagenform" alt="contacto"></img>
       </div>
     </div>
   );

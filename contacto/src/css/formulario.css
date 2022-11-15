@@ -4,8 +4,8 @@
   border: 2px solid white;
   color: white;
   height: 400px;
-  width: 500px;
-  background: #0166af;
+  width: 350px;
+  background-color: #012826;
   display: flex;
   align-content: center;
   justify-content: center;
@@ -20,18 +20,20 @@
 }
 
 .h1 {
-  color: white;
-  text-shadow: 0px 0px 5px #3e3e3e;
+  color: #ffe8d7;
+  font-size: 25px;
+  margin-bottom: 20px;
 }
 
 .agregarcontacto {
+  margin-top: -80px;
   height: 100vh;
-  background: #0166af;
-  display: flex;
-  justify-content: center;
+  background-color: #ffe8d7;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-items: center;
   align-items: center;
-  align-content: center;
+  justify-content: center;
 }
 
 form {
@@ -54,6 +56,7 @@ input {
 .activems {
   color: white;
   background-color: #0f5132;
+  border-radius: 3px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -144,4 +147,19 @@ input {
   background: #11749c;
   color: white;
   box-shadow: 1px 1px 3px black;
+}
+
+.left {
+  margin-right: -150px;
+  background-color: #ffe8d7;
+}
+
+.rigth {
+  margin-left: -200px;
+  background-color: #ffe8d7;
+}
+
+.imagenform {
+  width: 400px;
+  height: 400px;
 }
