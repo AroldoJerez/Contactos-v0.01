@@ -38,14 +38,15 @@ function Contacto() {
   LoadContacto();
 
   return (
-    <div className="ContainerContactos">
-      <div className="mensajeeliminado" hidden={estadoms === "" ? true : false}>
+    <div>
+    <div className="mensajeeliminado" hidden={estadoms === "" ? true : false}>
         <p className="textoeliminado">Contacto {estadoms} Eliminado</p>
         <FaRegTimesCircle
           className="iconEditdelete"
           onClick={() => setEstadoms("")}
         />
       </div>
+    <div className="ContainerContactos">
       {contact.map((contactos) => {
         return (
           <div className="contacto" key={contactos._id}>
@@ -77,6 +78,7 @@ function Contacto() {
           </div>
         );
       })}
+    </div>
     </div>
   );
 }

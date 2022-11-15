@@ -6,7 +6,7 @@ import "../css/App.css";
 const Navbar = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark bg-dark1">
         <Link to="/" className="nav-link">
           <img className="Logo" src={logo} alt="Logotipo CONTACTO" />
         </Link>

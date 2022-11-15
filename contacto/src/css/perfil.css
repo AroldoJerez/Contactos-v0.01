@@ -1,5 +1,67 @@
+html {
+  scroll-behavior: smooth;
+}
 .bodyperfil {
+  margin: 0 auto;
+  height: auto;
+  width: 80%;
+  box-shadow: 0px 0px 6px 0px black;
 }
 
-.perfil {
+.portada {
+  width: 100%;
+  height: 200px;
+  background-color: black;
+}
+
+.informaciondelperfil {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #565656;
+  border-left: 1px solid #565656;
+  height: auto;
+  background: #198754;
+  color: white;
+  padding: 20px;
+}
+.fotodeperfil {
+  margin: -100px 0px 0px 10px;
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  background-color: beige;
+  box-shadow: 1px 1px 4px black;
+}
+.imagenportadapredeterminada {
+  max-height: 200px;
+  width: 100%;
+}
+.divisorinformacion {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+.listamenu {
+  list-style: none;
+}
+.listamenu > li {
+  margin-top: 10px;
+  box-shadow: 0px 0px 1px black;
+}
+
+.listamenu > li:hover {
+  box-shadow: inset 0px 0px 4px black;
+  background-color: #198754;
+  cursor: pointer;
+  color: white;
+}
+ul.listamenu {
+  padding: 10px;
+}
+
+.listamenu > li > a {
+  margin-left: 5px;
+}
+.listamenuperfil {
+  margin-top: 10px;
 }
