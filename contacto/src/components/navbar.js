@@ -39,11 +39,6 @@ const Navbar = () => {
                 Disabled
               </a>
             </li>
-            <li className="nav-item">
-              <Link to="/Formulario" className="nav-link">
-                Formulario
-              </Link>
-            </li>
           </ul>
         </div>
       </nav>
