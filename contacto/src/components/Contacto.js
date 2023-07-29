@@ -39,46 +39,50 @@ function Contacto() {
 
   return (
     <div>
-    <div className="mensajeeliminado" hidden={estadoms === "" ? true : false}>
+      <div className="mensajeeliminado" hidden={estadoms === "" ? true : false}>
         <p className="textoeliminado">Contacto {estadoms} Eliminado</p>
         <FaRegTimesCircle
           className="iconEditdelete"
           onClick={() => setEstadoms("")}
         />
       </div>
-    <div className="ContainerContactos">
-      {contact.map((contactos) => {
-        return (
-          <div className="contacto" key={contactos._id}>
-            <Link to={contactos._id} className="informacion">
-              <p>Nombre: {contactos.nombre}</p>
-              <p>Numero: {contactos.numero}</p>
-            </Link>
-            <div className="Ambosdivicons">
-              <div className="Iconos">
-                <a
-                  href={"editarcontacto/" + contactos._id}
-                  className="botonicon"
-                >
-                  <FaUsersCog className="iconEdit" />
-                </a>
-                <button
-                  className="botonicon"
-                  onClick={() => EliminarContacto(contactos)}
-                >
-                  <FaRegTrashAlt className="iconEdit" />
-                </button>
-              </div>
-              <div className="icons1">
-                <FaFacebookSquare />
-                <FaInstagram />
-                <FaTwitterSquare />
+      <div className="ContainerContactos">
+        {contact.map((contactos) => {
+          return (
+            <div className="contacto" key={contactos._id}>
+              <Link to={contactos._id} className="informacion">
+                <p>Nombre:</p>
+
+                {contactos.nombre}
+
+                <p>Numero:</p>
+                {contactos.numero}
+              </Link>
+              <div className="Ambosdivicons">
+                <div className="Iconos">
+                  <a
+                    href={"editarcontacto/" + contactos._id}
+                    className="botonicon"
+                  >
+                    <FaUsersCog className="iconEdit" />
+                  </a>
+                  <button
+                    className="botonicon"
+                    onClick={() => EliminarContacto(contactos)}
+                  >
+                    <FaRegTrashAlt className="iconEdit" />
+                  </button>
+                </div>
+                <div className="icons1">
+                  <FaFacebookSquare />
+                  <FaInstagram />
+                  <FaTwitterSquare />
+                </div>
               </div>
             </div>
-          </div>
-        );
-      })}
-    </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

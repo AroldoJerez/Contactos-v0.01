@@ -88,6 +88,7 @@ function Editarcontacto() {
               className="nombre"
               name="nombre"
               type="text"
+              maxLength="16"
               placeholder={contacto.nombre}
             ></input>
             <input
